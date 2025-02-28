@@ -50,11 +50,14 @@ biometry <- read("data/biometry.rds")
 ### Description par l'étudiant 1
 
 ```{r Cha descript1}
-
+skimr::skim(biometry)
 ```
 
 ```{r Cha descript2}
-
+chart(biometry, ~ fast_food %fill=% genre |genre) +
+  geom_histogram(data = sselect(biometry, - genre), fill = "grey", bins = 13) + 
+  geom_histogram(show.legend = FALSE, bins = 13) + 
+  ylab("Effectifs")
 ```
 
 ### Description par l'étudiant 2
