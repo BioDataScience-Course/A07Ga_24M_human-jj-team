@@ -60,11 +60,13 @@ biometry <- read("data/biometry.rds")
 ### Description par l'étudiant 2
 
 ```{r Thea descript 1}
-
+chart(biometry, tour_taille ~tour_hanche %shape=% genre %col=% genre) +
+  geom_point()
 ```
 
 ```{r Thea descript 2}
-
+chart(data = biometry, ~ ) +
+  geom_histogram()
 ```
 
 ### Description par l'étudiant 3
@@ -84,11 +86,16 @@ geom_point()
 ### Description par l'étudiant 4
 
 ```{r Amel descript 1}
-
+chart(data = biometry, taille ~ genre %fill=% genre) +
+ geom_violin()
 ```
 
 ```{r Amel descript 2}
-
+chart(data = biometry, tour_hanche ~ masse %fill=% genre | genre) +
+geom_boxplot()+
+  scale_fill_viridis_d() +
+  stat_summary(fun.data = biometry, hjust = 0.5, position = position_dodge(0.75))
+  
 ```
 
 ## Calcul d'indices
