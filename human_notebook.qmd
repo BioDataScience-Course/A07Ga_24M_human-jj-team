@@ -60,17 +60,22 @@ biometry <- read("data/biometry.rds")
 ### Description par l'étudiant 2
 
 ```{r Thea descript 1}
-
+chart(biometry, tour_taille ~tour_hanche %shape=% genre %col=% genre) +
+  geom_point()
 ```
 
 ```{r Thea descript 2}
-
+chart(data = biometry, ~ ) +
+  geom_histogram()
 ```
 
 ### Description par l'étudiant 3
 
 ```{r Lea descript 1}
-
+chart(data = biometry, ~ masse %fill=%genre | genre )+
+  geom_histogram(data = sselect(biometry, -genre), fill = "grey", bins = 35)+
+  geom_histogram()+
+  ylab("Effectifs")
 ```
 
 ```{r Lea descript 2}
