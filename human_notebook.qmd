@@ -20,7 +20,7 @@ if (!"tools:tests" %in% search())
   source(here::here("tests/tools_tests.R"), attach(NULL, name = "tools:tests"))
 
 # Configuration de l'environnement SciViews::R
-SciViews::R(___, lang = "fr")
+SciViews::R("infer", lang = "fr")
 ```
 
 # Introduction et but
@@ -41,25 +41,51 @@ La description des données et les tests statistiques sont réalisés dans la Sc
 
 <!--% Ajoutez un chunk d'importation des données à partir de vos données remaniées dans `data/biometry.rds`. Inspirez-vous de vos projets individuels pour écrire correctement ces chunks. -->
 
-...Votre chunk d'importation ici...
+```{rimport}
+
+```
 
 <!--% Ensuite vous décrirez graphiquement (avec `chart()`) et numériquement (tableaux avec `tabularise()`, `skimr::skim()`, etc.) vos données. Chaque étudiant ajoute deux éléments descriptifs pertinents. -->
 
 ### Description par l'étudiant 1
 
-...Vos deux descriptions ici...
+```{rCha descript1}
+
+```
+
+```{rCha descript2}
+
+```
 
 ### Description par l'étudiant 2
 
-...Vos deux descriptions ici...
+```{rThea descript 1}
+
+```
+
+```{rThea descript 2}
+
+```
 
 ### Description par l'étudiant 3
 
-...Vos deux descriptions ici...
+```{rLea descript 1}
+
+```
+
+```{rLea descript 2}
+
+```
 
 ### Description par l'étudiant 4
 
-...Vos deux descriptions ici...
+```{rAmel descript 1}
+
+```
+
+```{r Amel descript 2}
+
+```
 
 ## Calcul d'indices
 
