@@ -82,7 +82,7 @@ chart(data = biometry, ~ masse %fill=%genre | genre )+
 ```
 
 ```{r Lea descript 2}
-chart(data = biometry, age ~ sommeil | genre ) +
+chart(data = biometry, age ~ sommeil %fill=% genre | genre ) +
   geom_violin()
 ```
 
