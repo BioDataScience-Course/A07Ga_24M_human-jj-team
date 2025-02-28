@@ -70,7 +70,10 @@ biometry <- read("data/biometry.rds")
 ### Description par l'étudiant 3
 
 ```{r Lea descript 1}
-
+chart(data = biometry, ~ masse %fill=%genre | genre )+
+  geom_histogram(data = sselect(biometry, -genre), fill = "grey", bins = 40)+
+  geom_histogram()+
+  ylab("Effectifs")
 ```
 
 ```{r Lea descript 2}
