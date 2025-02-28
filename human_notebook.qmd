@@ -77,7 +77,8 @@ chart(data = biometry, ~ masse %fill=%genre | genre )+
 ```
 
 ```{r Lea descript 2}
-
+chart(data = biometry, sucre ~ activite_physique  )+
+geom_point()
 ```
 
 ### Description par l'étudiant 4
