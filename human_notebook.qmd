@@ -72,7 +72,10 @@ chart(data = biometry, ~ ) +
 ### Description par l'étudiant 3
 
 ```{r Lea descript 1}
-
+chart(data = biometry, ~ masse %fill=%genre | genre )+
+  geom_histogram(data = sselect(biometry, -genre), fill = "grey", bins = 35)+
+  geom_histogram()+
+  ylab("Effectifs")
 ```
 
 ```{r Lea descript 2}
