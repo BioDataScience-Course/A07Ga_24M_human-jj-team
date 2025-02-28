@@ -1,6 +1,6 @@
 ---
 title: "Santé humaine liée à l'obésité (bloc-notes)"
-author: "De Seager Charlotte, Rousseau Théa, Brohez Léa, Pierson Amélie"
+author: "De Seager Charlotte, Brohez Léa, Rousseau Théa, Pierson Amélie"
 date: "`r Sys.Date()`"
 format:
   html:
