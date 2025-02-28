@@ -49,37 +49,37 @@ read("data/biometry.rds")
 
 ### Description par l'étudiant 1
 
-```{rCha descript1}
+```{r Cha descript1}
 
 ```
 
-```{rCha descript2}
+```{r Cha descript2}
 
 ```
 
 ### Description par l'étudiant 2
 
-```{rThea descript 1}
+```{r Thea descript 1}
 
 ```
 
-```{rThea descript 2}
+```{r Thea descript 2}
 
 ```
 
 ### Description par l'étudiant 3
 
-```{rLea descript 1}
+```{r Lea descript 1}
 
 ```
 
-```{rLea descript 2}
+```{r Lea descript 2}
 
 ```
 
 ### Description par l'étudiant 4
 
-```{rAmel descript 1}
+```{r Amel descript 1}
 
 ```
 
