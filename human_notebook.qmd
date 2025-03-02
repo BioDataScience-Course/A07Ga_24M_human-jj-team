@@ -68,8 +68,7 @@ chart(biometry, tour_taille ~tour_hanche %shape=% genre %col=% genre) +
 ```
 
 ```{r Thea descript 2}
-chart(data = biometry, ~ ) +
-  geom_histogram()
+table(biometry$genre, biometry$alimentation)
 ```
 
 ### Description par l'étudiant 3
