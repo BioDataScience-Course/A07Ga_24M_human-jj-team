@@ -84,10 +84,21 @@ chart(data = biometry, ~ masse %fill=%genre | genre )+
   ylab("Effectifs")
 ```
 
+-   On voit qu'en moyenne les hommes ont une masse plus élevée que les femmes.
+
+-    La majorité des hommes ont une masse qui se situe entre 75 et 95Kg alors que les femmes ont en majorité une masse qui se situe entre 55 et 70 Kg.
+
 ```{r Lea descript 2}
-chart(data = biometry, age ~ sommeil %fill=% genre | genre ) +
-  geom_violin()
+tabularise(table("Sommeil" =biometry$sommeil, "Genre"= biometry$genre), 
+  include.row_percent = F,
+  include.column_percent = F,
+  include.table_percent = F)
+
+
+
 ```
+
+-   Autant chez les hommes que chez les femmes on remarque que la majorité des individus mesurés dorment entre 6 et 8h par nuit.
 
 ### Description par l'étudiant 4
 
