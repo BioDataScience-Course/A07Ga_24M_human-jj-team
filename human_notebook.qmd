@@ -109,7 +109,7 @@ tabularise(table("Sommeil" =biometry$sommeil, "Genre"= biometry$genre),
     include.table_percent = F )
 ```
 
--   Majoritairement, homme et femme boivent environ 1.5 litres.
+-   En moyenne, homme et femme boivent environ 1.5 litres.
 
 ```{r Amel descript 2}
 chart(data = biometry, tour_hanche ~ masse %fill=% genre | genre) +
