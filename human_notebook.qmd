@@ -53,12 +53,16 @@ biometry <- read("data/biometry.rds")
 skimr::skim(biometry)
 ```
 
+Nous pouvons voir que le tableau des données est très complet, à une exception (une valeur est manquante). Il nous indique qu'il y a une variable character, deux variables dates, six variables factor et quinze variables numériques.
+
 ```{r Cha descript2}
 chart(biometry, ~ fast_food %fill=% genre |genre) +
   geom_histogram(data = sselect(biometry, - genre), fill = "grey", bins = 13) + 
   geom_histogram(show.legend = FALSE, bins = 13) + 
   ylab("Effectifs")
 ```
+
+Nous pouvons observer que les femmes sont en moyenne moins enclines à manger des fast-foods que les hommes.
 
 ### Description par l'étudiant 2
 
@@ -112,6 +116,15 @@ geom_boxplot()+
 
 ```{r indice1}
 # Calcul de la ou des variables reprenant l'indice sous forme numérique (et facteur)
+biometry <- smutate(biometry, 
+  rap_tai_han = tour_taille/tour_hanche)
+
+biometry <- smutate(biometry, rap_tai_han = case_when(
+    rap_tai_han < 0.85 & genre == "F" ~ "normal",
+    rap_tai_han >= 0.85 & genre == "F" ~ "à risque",
+    rap_tai_han < 0.90 & genre == "H" ~ "normal",
+    rap_tai_han >= 0.90 & genre == "H" ~ "à risque"
+  ))
 
 ```
 
@@ -119,12 +132,14 @@ geom_boxplot()+
 
 ```{r plot_indice1}
 # Graphique ou tableau utilisant l'indice calculé.
+rap_tai_han_table <- table(sselect(biometry, genre, rap_tai_han))
 
+tabularise(rap_tai_han_table)
 ```
 
 <!--% Interprétation en quelques points du graphique ou tableau. -->
 
--   ...
+-   Nous pouvons remarquer que le rapport taille-hanche est en moyenne plus à risque chez les femmes que chez les hommes.
 
 -   ...
 
