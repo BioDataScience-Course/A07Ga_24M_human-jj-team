@@ -63,13 +63,17 @@ chart(biometry, ~ fast_food %fill=% genre |genre) +
 ### Description par l'étudiant 2
 
 ```{r Thea descript 1}
-chart(biometry, tour_taille ~tour_hanche %shape=% genre %col=% genre) +
+chart(biometry, tour_taille ~tour_hanche %shape=% genre) +
   geom_point()
 ```
+
+-   On remarque que les hommes ont un tour de hanche plus faible que les femmes.
 
 ```{r Thea descript 2}
 table(biometry$genre, biometry$alimentation)
 ```
+
+-   On remarque que le régime alimentaire des hommes et des femmes est plus ou moins identiques.
 
 ### Description par l'étudiant 3
 
@@ -136,14 +140,22 @@ geom_boxplot()+
 
 ```{r indice2}
 # Calcul de la ou des variables reprenant l'indice sous forme numérique (et facteur)
-
+biometry1 <- smutate(biometry, IMC = masse_corr/(taille/100)^2)
 ```
 
 <!--% Graphique ou tableau utilisant l'indice calculé.-->
 
 ```{r plot_indice2}
 # Graphique ou tableau utilisant l'indice calculé.
-
+  biometry2 <- smutate(biometry1, IMC = case_when(
+  IMC < 18.5 ~" sous poids",
+  IMC >= 18.5 & IMC < 25 ~" poids normal ",
+  IMC >= 25 & IMC < 30 ~" surpoids",
+  IMC >= 30 ~ "obese"))
+  
+  biometry2_table <- table(sselect(biometry2, genre, IMC))
+  
+  tabularise(biometry2_table)
 ```
 
 <!--% Interprétation en quelques points du graphique ou tableau. -->
