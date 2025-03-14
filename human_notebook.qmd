@@ -86,7 +86,7 @@ chart(data = biometry, ~ masse %fill=%genre | genre )+
 
 -   On voit qu'en moyenne les hommes ont une masse plus élevée que les femmes.
 
--    La majorité des hommes ont une masse qui se situe entre 75 et 95Kg alors que les femmes ont en majorité une masse qui se situe entre 55 et 70 Kg.
+-   La majorité des hommes ont une masse qui se situe entre 75 et 95Kg alors que les femmes ont en majorité une masse qui se situe entre 55 et 70 Kg.
 
 ```{r Lea descript 2}
 tabularise(table("Sommeil" =biometry$sommeil, "Genre"= biometry$genre), 
