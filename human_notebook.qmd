@@ -67,13 +67,17 @@ Nous pouvons observer que les femmes sont en moyenne moins enclines à manger de
 ### Description par l'étudiant 2
 
 ```{r Thea descript 1}
-chart(biometry, tour_taille ~tour_hanche %shape=% genre %col=% genre) +
+chart(biometry, tour_taille ~tour_hanche %shape=% genre) +
   geom_point()
 ```
+
+-   On remarque que les hommes ont un tour de hanche plus faible que les femmes.
 
 ```{r Thea descript 2}
 table(biometry$genre, biometry$alimentation)
 ```
+
+-   On remarque que le régime alimentaire des hommes et des femmes est plus ou moins identiques.
 
 ### Description par l'étudiant 3
 
@@ -84,17 +88,34 @@ chart(data = biometry, ~ masse %fill=%genre | genre )+
   ylab("Effectifs")
 ```
 
+-   On voit qu'en moyenne les hommes ont une masse plus élevée que les femmes.
+
+-    La majorité des hommes ont une masse qui se situe entre 75 et 95Kg alors que les femmes ont en majorité une masse qui se situe entre 55 et 70 Kg.
+
 ```{r Lea descript 2}
-chart(data = biometry, age ~ sommeil %fill=% genre | genre ) +
-  geom_violin()
+tabularise(table("Sommeil" =biometry$sommeil, "Genre"= biometry$genre), 
+  include.row_percent = F,
+  include.column_percent = F,
+  include.table_percent = F)
+
+
+
 ```
+
+-   Autant chez les hommes que chez les femmes on remarque que la majorité des individus mesurés dorment entre 6 et 8h par nuit.
 
 ### Description par l'étudiant 4
 
 ```{r Amel descript 1}
-chart(data = biometry, taille ~ genre %fill=% genre) +
- geom_violin()
+  tabularise(table("Eau" = biometry$eau, "Genre" = biometry$genre),
+    include.row_percent = F,
+    include.column_percent = F,
+    include.table_percent = F )
 ```
+
+-   Nous pouvons constater que les femmes boivent plus d'eau que les hommes.
+
+-   On peut voir qu'en moyenne, hommes et femmes confondus boivent 1.5 litres d'eau par jour.
 
 ```{r Amel descript 2}
 chart(data = biometry, tour_hanche ~ masse %fill=% genre | genre) +
@@ -103,6 +124,8 @@ geom_boxplot()+
   stat_summary(fun.data = biometry, hjust = 0.5, position = position_dodge(0.75))
   
 ```
+
+-   Les femmes ont en général un tour de hanche plus large que les hommes pour une même gamme de masse corporelle.
 
 ## Calcul d'indices
 
@@ -151,14 +174,22 @@ tabularise(rap_tai_han_table)
 
 ```{r indice2}
 # Calcul de la ou des variables reprenant l'indice sous forme numérique (et facteur)
-
+biometry1 <- smutate(biometry, IMC = masse_corr/(taille/100)^2)
 ```
 
 <!--% Graphique ou tableau utilisant l'indice calculé.-->
 
 ```{r plot_indice2}
 # Graphique ou tableau utilisant l'indice calculé.
-
+  biometry2 <- smutate(biometry1, IMC = case_when(
+  IMC < 18.5 ~" sous poids",
+  IMC >= 18.5 & IMC < 25 ~" poids normal ",
+  IMC >= 25 & IMC < 30 ~" surpoids",
+  IMC >= 30 ~ "obese"))
+  
+  biometry2_table <- table(sselect(biometry2, genre, IMC))
+  
+  tabularise(biometry2_table)
 ```
 
 <!--% Interprétation en quelques points du graphique ou tableau. -->
