@@ -113,9 +113,7 @@ tabularise(table("Sommeil" =biometry$sommeil, "Genre"= biometry$genre),
     include.table_percent = F )
 ```
 
--   Nous pouvons constater que les femmes boivent plus d'eau que les hommes.
-
--   On peut voir qu'en moyenne, hommes et femmes confondus boivent 1.5 litres d'eau par jour.
+-   En moyenne, homme et femme boivent environ 1.5 litres.
 
 ```{r Amel descript 2}
 chart(data = biometry, tour_hanche ~ masse %fill=% genre | genre) +
