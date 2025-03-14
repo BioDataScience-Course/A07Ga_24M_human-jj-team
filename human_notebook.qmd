@@ -81,8 +81,13 @@ chart(data = biometry, ~ masse %fill=%genre | genre )+
 ```
 
 ```{r Lea descript 2}
-chart(data = biometry, age ~ sommeil %fill=% genre | genre ) +
-  geom_violin()
+tabularise(table("Sommeil" =biometry$sommeil, "Genre"= biometry$genre), 
+  include.row_percent = F,
+  include.column_percent = F,
+  include.table_percent = F)
+
+
+
 ```
 
 ### Description par l'étudiant 4
