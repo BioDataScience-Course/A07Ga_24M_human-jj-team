@@ -204,14 +204,16 @@ biometry1 <- smutate(biometry, IMC = masse_corr/(taille/100)^2)
 
 ```{r indice3}
 # Calcul de la ou des variables reprenant l'indice sous forme numérique (et facteur)
-
+biometry3 <- smutate(biometry,  tour_tai_tai = tour_taille/taille  )
 ```
 
 <!--% Graphique ou tableau utilisant l'indice calculé.-->
 
 ```{r plot_indice3}
 # Graphique ou tableau utilisant l'indice calculé.
-
+chart(data = biometry3, tour_tai_tai ~ genre  %fill=% genre  )+
+ geom_boxplot()+
+  labs(y= "Rapport Tour de taille / Taille ")
 ```
 
 <!--% Interprétation en quelques points du graphique ou tableau. -->
