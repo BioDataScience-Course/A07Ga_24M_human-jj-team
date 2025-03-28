@@ -90,7 +90,7 @@ chart(data = biometry, ~ masse %fill=%genre | genre )+
 
 -   On voit qu'en moyenne les hommes ont une masse plus élevée que les femmes.
 
--    La majorité des hommes ont une masse qui se situe entre 75 et 95Kg alors que les femmes ont en majorité une masse qui se situe entre 55 et 70 Kg.
+-   La majorité des hommes ont une masse qui se situe entre 75 et 95Kg alors que les femmes ont en majorité une masse qui se situe entre 55 et 70 Kg.
 
 ```{r Lea descript 2}
 tabularise(table("Sommeil" =biometry$sommeil, "Genre"= biometry$genre), 
@@ -185,7 +185,7 @@ biometry1 <- smutate(biometry, IMC = masse_corr/(taille/100)^2)
   IMC < 18.5 ~" sous poids",
   IMC >= 18.5 & IMC < 25 ~" poids normal ",
   IMC >= 25 & IMC < 30 ~" surpoids",
-  IMC >= 30 ~ "obese"))
+  IMC >= 30 ~ "obèse"))
   
   biometry2_table <- table(sselect(biometry2, genre, IMC))
   
@@ -194,7 +194,7 @@ biometry1 <- smutate(biometry, IMC = masse_corr/(taille/100)^2)
 
 <!--% Interprétation en quelques points du graphique ou tableau. -->
 
--   ...
+-   
 
 -   ...
 
@@ -264,6 +264,10 @@ biometry1 <- smutate(biometry, IMC = masse_corr/(taille/100)^2)
 
 <!--% Hypothèse nulle et alternative -->
 
+-   H0 : Indépendance entre le régime alimentaire et l'IMC
+
+-   H1: Dépendance entre le régime alimentaire et l'IMC
+
 <!--% Vérification des conditions d'application -->
 
 ```{r test_chi2_1}
@@ -271,6 +275,8 @@ biometry1 <- smutate(biometry, IMC = masse_corr/(taille/100)^2)
 ```
 
 <!--% Interprétation statistique et biologique -->
+
+-   Il n'y a pas de différence significative au seuil alpha, il y a donc dépendance entre le régime alimentaire et l'IMC. ( X\^2 obs = 6.39, ddl = 6, p-value = 0.381)
 
 ### Test de Chi^2^ 2
 
