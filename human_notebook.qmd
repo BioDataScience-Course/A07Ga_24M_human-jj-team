@@ -211,9 +211,10 @@ biometry3 <- smutate(biometry,  tour_tai_tai = tour_taille/taille  )
 
 ```{r plot_indice3}
 # Graphique ou tableau utilisant l'indice calculé.
-chart(data = biometry3, tour_tai_tai ~ genre  %fill=% genre  )+
- geom_boxplot()+
-  labs(y= "Rapport Tour de taille / Taille ")
+chart(data = biometry3, tour_tai_tai ~ genre)+
+ geom_boxplot(aes(fill = genre), show.legend=FALSE)+
+  labs(y= "Rapport Tour de taille / Taille ")+
+  stat_summary(geom = "point", fun = "mean", color = "red",size = 2)
 ```
 
 <!--% Interprétation en quelques points du graphique ou tableau. -->
