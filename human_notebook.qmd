@@ -183,7 +183,7 @@ biometry1 <- smutate(biometry, IMC = masse_corr/(taille/100)^2)
   IMC < 18.5 ~" sous poids",
   IMC >= 18.5 & IMC < 25 ~" poids normal ",
   IMC >= 25 & IMC < 30 ~" surpoids",
-  IMC >= 30 ~ "obese"))
+  IMC >= 30 ~ "obèse"))
   
   biometry2_table <- table(sselect(biometry2, genre, IMC))
   
@@ -192,7 +192,7 @@ biometry1 <- smutate(biometry, IMC = masse_corr/(taille/100)^2)
 
 <!--% Interprétation en quelques points du graphique ou tableau. -->
 
--   ...
+-   
 
 -   ...
 
@@ -204,6 +204,7 @@ biometry1 <- smutate(biometry, IMC = masse_corr/(taille/100)^2)
 
 ```{r indice3}
 # Calcul de la ou des variables reprenant l'indice sous forme numérique (et facteur)
+
 biometry3 <- smutate(biometry,  tour_tai_tai = tour_taille/taille  )
 ```
 
@@ -231,7 +232,6 @@ chart(data = biometry3, tour_tai_tai ~ genre)+
 
 ```{r indice4}
 # Calcul de la ou des variables reprenant l'indice sous forme numérique (et facteur)
-
 ```
 
 <!--% Graphique ou tableau utilisant l'indice calculé.-->
@@ -260,18 +260,27 @@ chart(data = biometry3, tour_tai_tai ~ genre)+
 <!--% Graphique ou tableau présentant les données par rapport au test à réaliser. -->
 
 ```{r plot_chi2_1}
-
+IMC_tab <- table( Régime = biometry2$alimentation, IMC = biometry2$IMC )
+# Tableau formaté
+ tabularise(IMC_tab)
 ```
 
 <!--% Hypothèse nulle et alternative -->
 
+-   H0 : Indépendance entre le régime alimentaire et l'IMC
+
+-   H1: Dépendance entre le régime alimentaire et l'IMC
+
 <!--% Vérification des conditions d'application -->
 
 ```{r test_chi2_1}
-
+chi2_IMC <- chisq.test(IMC_tab)
+tabularise(chi2_IMC)
 ```
 
 <!--% Interprétation statistique et biologique -->
+
+-   Il n'y a pas de différence significative au seuil alpha, il y a donc dépendance entre le régime alimentaire et l'IMC. ( X\^2 obs = 6.39, ddl = 6, p-value = 0.381)
 
 ### Test de Chi^2^ 2
 
