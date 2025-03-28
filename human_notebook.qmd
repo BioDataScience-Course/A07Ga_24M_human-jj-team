@@ -183,7 +183,7 @@ biometry1 <- smutate(biometry, IMC = masse_corr/(taille/100)^2)
   IMC < 18.5 ~" sous poids",
   IMC >= 18.5 & IMC < 25 ~" poids normal ",
   IMC >= 25 & IMC < 30 ~" surpoids",
-  IMC >= 30 ~ "obese"))
+  IMC >= 30 ~ "obèse"))
   
   biometry2_table <- table(sselect(biometry2, genre, IMC))
   
@@ -192,7 +192,7 @@ biometry1 <- smutate(biometry, IMC = masse_corr/(taille/100)^2)
 
 <!--% Interprétation en quelques points du graphique ou tableau. -->
 
--   ...
+-   
 
 -   ...
 
@@ -204,13 +204,20 @@ biometry1 <- smutate(biometry, IMC = masse_corr/(taille/100)^2)
 
 ```{r indice3}
 # Calcul de la ou des variables reprenant l'indice sous forme numérique (et facteur)
+<<<<<<< HEAD
+=======
+biometry3 <- smutate(biometry,  tour_tai_tai = tour_taille/taille  )
+>>>>>>> 8d42a8c5cae66ee0b3c7d17fbf45fc8c18bb6b80
 ```
 
 <!--% Graphique ou tableau utilisant l'indice calculé.-->
 
 ```{r plot_indice3}
 # Graphique ou tableau utilisant l'indice calculé.
-
+chart(data = biometry3, tour_tai_tai ~ genre)+
+ geom_boxplot(aes(fill = genre), show.legend=FALSE)+
+  labs(y= "Rapport Tour de taille / Taille ")+
+  stat_summary(geom = "point", fun = "mean", color = "red",size = 2)
 ```
 
 <!--% Interprétation en quelques points du graphique ou tableau. -->
@@ -262,6 +269,10 @@ IMC_tab <- table( Régime = biometry2$alimentation, IMC = biometry2$IMC )
 
 <!--% Hypothèse nulle et alternative -->
 
+-   H0 : Indépendance entre le régime alimentaire et l'IMC
+
+-   H1: Dépendance entre le régime alimentaire et l'IMC
+
 <!--% Vérification des conditions d'application -->
 
 ```{r test_chi2_1}
@@ -270,6 +281,8 @@ tabularise(chi2_IMC)
 ```
 
 <!--% Interprétation statistique et biologique -->
+
+-   Il n'y a pas de différence significative au seuil alpha, il y a donc dépendance entre le régime alimentaire et l'IMC. ( X\^2 obs = 6.39, ddl = 6, p-value = 0.381)
 
 ### Test de Chi^2^ 2
 
