@@ -162,9 +162,9 @@ tabularise(rap_tai_han_table)
 
 -   Nous pouvons remarquer que le rapport taille-hanche est en moyenne plus à risque chez les femmes que chez les hommes.
 
--   ...
+-   En observant uniquement chez les hommes, on peut remarquer que plus d'hommes sont à risques.
 
--   ...
+-   En observant uniquement chez les femmes, on peut remarquer que moins de femmes sont à risques.
 
 ### Indice 2
 
@@ -234,22 +234,25 @@ chart(data = biometry3, tour_tai_tai ~ genre)+
 
 ```{r indice4}
 # Calcul de la ou des variables reprenant l'indice sous forme numérique (et facteur)
+biometry4 <- smutate(biometry, masse_acti = activite_physique / masse )
 ```
 
 <!--% Graphique ou tableau utilisant l'indice calculé.-->
 
 ```{r plot_indice4}
 # Graphique ou tableau utilisant l'indice calculé.
-
+chart(data = biometry4, ~ masse_acti  %fill=% genre | genre) +
+  geom_histogram( ) +
+  labs(y = "Effectifs") 
 ```
 
 <!--% Interprétation en quelques points du graphique ou tableau. -->
 
--   ...
+-   Peu de personnes font suffisamment d'activité physique par semaine.
 
--   ...
+-   Les hommes semblent un peu plus actifs que les femmes même si l'activité globale reste faible dans les 2 groupes.
 
--   ...
+-   On peut voir que par rappport à leur poids, leur indice d\'activité physique est bas dans les 2 groupes.
 
 ## Tests d'hypothèses
 
@@ -295,13 +298,20 @@ tabularise(rap_tai_han_tab)
 
 <!--% Hypothèse nulle et alternative -->
 
+H0 : Indépendance entre les caractères rapport de tour de taille - tour de hanche et le régime alimentaire.
+
+H1 : Dépendance entre les caractères rapport de tour de taille - tour de hanche et le régime alimentaire.
+
 <!--% Vérification des conditions d'application -->
 
 ```{r test_chi2_2}
-
+chi2_raptaihan <- chisq.test(rap_tai_han_tab)
+tabularise(chi2_raptaihan)
 ```
 
 <!--% Interprétation statistique et biologique -->
+
+Nous pouvons observer que le rapport entre le rapport de tour de taille - tour de hanche et le régime alimentaire n'est significativement pas dépendant au seuil alpha de 5% (X\^2 = 3.86, ddl = 2, p-value = 0.145).
 
 <!--# Travaillez jusqu'ici pour le module 7. -->
 
@@ -333,15 +343,22 @@ t.test(data = biometry2, masse ~ genre, alternative = "two.sided", conf.level = 
 <!--% Graphique ou tableau présentant les données par rapport au test à réaliser. -->
 
 ```{r plot_t_2}
-
+chart(biometry3, activite_physique ~ genre) +
+  geom_jitter(alpha = 0.3, width = 0.2) +
+  stat_summary(geom = "point", fun = "mean", size = 2) +
+  stat_summary(geom = "errorbar", width = 0.1, fun.data = "mean_cl_normal", fun.args=list(conf.int = 0.95))
 ```
 
 <!--% Hypothèse nulle et alternative -->
 
+-   H0 : \\overline{activite_physique{F}} - \\overline{activite_physique{H}} = 0
+
+-   H1 : \\overline{activite_physique{F}} - \\overline{activite_physique{H}} \> 0
+
 <!--% Vérification des conditions d'application -->
 
 ```{r test_t_2}
-
+t.test(data = biometry3, activite_physique ~ genre, alternative = "greater", conf.level = 0.95, var.equal = TRUE)
 ```
 
 <!--% Interprétation statistique et biologique -->
