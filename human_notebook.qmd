@@ -398,10 +398,17 @@ chart(data = biometry3, masse ~ alimentation ) +
 
 <!--% Hypothèse nulle et alternative -->
 
+$$ H_0 : \mu_o = \mu_c = \mu_v
+$$
+
+$$
+H_1: \exists(i, j) \mathrm{\ tel\ que \ } \mu_i \neq \mu_j
+$$
+
 <!--% Vérification des conditions d'application -->
 
 ```{r test_anova1_2}
-
+anova(ali_masse_anova <- lm(data = biometry3, masse ~ alimentation)) |> tabularise()
 ```
 
 <!--% Interprétation statistique et biologique -->
