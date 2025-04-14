@@ -351,9 +351,13 @@ chart(biometry3, activite_physique ~ genre) +
 
 <!--% Hypothèse nulle et alternative -->
 
--   H0 : \\overline{activite_physique{F}} - \\overline{activite_physique{H}} = 0
+$$
+H_0 : \overline{activite.physique_{F}} - \overline{activite.physique_{H}} = 0
+$$
 
--   H1 : \\overline{activite_physique{F}} - \\overline{activite_physique{H}} \> 0
+$$
+H_1 : \overline{activite.physique_{F}} - \overline{activite.physique_{H}} > 0
+$$
 
 <!--% Vérification des conditions d'application -->
 
