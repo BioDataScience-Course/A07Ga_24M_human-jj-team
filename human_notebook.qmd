@@ -340,10 +340,14 @@ Nous pouvons observer que le rapport entre le rapport de tour de taille - tour d
 
 <!--% Hypothèse nulle et alternative -->
 
+-   H0 : \\overline{activite_physique{F}} - \\overline{activite_physique{H}} = 0
+
+-   H1 : \\overline{activite_physique{F}} - \\overline{activite_physique{H}} \> 0
+
 <!--% Vérification des conditions d'application -->
 
 ```{r test_t_2}
-
+t.test(data = biometry3, activite_physique ~ genre, alternative = "greater", conf.level = 0.95, var.equal = TRUE)
 ```
 
 <!--% Interprétation statistique et biologique -->
