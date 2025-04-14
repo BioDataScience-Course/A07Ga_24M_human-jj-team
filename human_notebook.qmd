@@ -162,9 +162,9 @@ tabularise(rap_tai_han_table)
 
 -   Nous pouvons remarquer que le rapport taille-hanche est en moyenne plus à risque chez les femmes que chez les hommes.
 
--   ...
+-   En observant uniquement chez les hommes, on peut remarquer que plus d'hommes sont à risques.
 
--   ...
+-   En observant uniquement chez les femmes, on peut remarquer que moins de femmes sont à risques.
 
 ### Indice 2
 
@@ -220,11 +220,13 @@ chart(data = biometry3, tour_tai_tai ~ genre)+
 
 <!--% Interprétation en quelques points du graphique ou tableau. -->
 
--   ...
+-   Les hommes ont en moyenne un rapport tour de taille - taille un peu plus faible que les femmes.
 
--   ...
+<!-- -->
 
--   ...
+-   Les femmes ont une plus grande variabilité que les hommes pour le rapport tour de taille - taille
+
+-   Chez les hommes et les femmes, la moyenne du rapport est assez proche de la médiane, ce qui nous indique que la distribution est relativement symétrique.
 
 ### Indice 4
 
@@ -290,19 +292,26 @@ tabularise(chi2_IMC)
 <!--% Graphique ou tableau présentant les données par rapport au test à réaliser. -->
 
 ```{r plot_chi2_2}
-rap_tai_tai_tab <- table( rap_tai_tai = biometry3$tour_tai_tai, genre = biometry3$genre )
-tabularise(rap_tai_tai_tab)
+rap_tai_han_tab <- table( rap_tai_han = biometry3$rap_tai_han, régime = biometry3$alimentation )
+tabularise(rap_tai_han_tab)
 ```
 
 <!--% Hypothèse nulle et alternative -->
 
+H0 : Indépendance entre les caractères rapport de tour de taille - tour de hanche et le régime alimentaire.
+
+H1 : Dépendance entre les caractères rapport de tour de taille - tour de hanche et le régime alimentaire.
+
 <!--% Vérification des conditions d'application -->
 
 ```{r test_chi2_2}
-
+chi2_raptaihan <- chisq.test(rap_tai_han_tab)
+tabularise(chi2_raptaihan)
 ```
 
 <!--% Interprétation statistique et biologique -->
+
+Nous pouvons observer que le rapport entre le rapport de tour de taille - tour de hanche et le régime alimentaire n'est significativement pas dépendant au seuil alpha de 5% (X\^2 = 3.86, ddl = 2, p-value = 0.145).
 
 <!--# Travaillez jusqu'ici pour le module 7. -->
 
@@ -329,7 +338,10 @@ tabularise(rap_tai_tai_tab)
 <!--% Graphique ou tableau présentant les données par rapport au test à réaliser. -->
 
 ```{r plot_t_2}
-
+chart(biometry3, activite_physique ~ genre) +
+  geom_jitter(alpha = 0.3, width = 0.2) +
+  stat_summary(geom = "point", fun = "mean", size = 2) +
+  stat_summary(geom = "errorbar", width = 0.1, fun.data = "mean_cl_normal", fun.args=list(conf.int = 0.95))
 ```
 
 <!--% Hypothèse nulle et alternative -->
