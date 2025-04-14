@@ -252,7 +252,7 @@ chart(data = biometry4, ~ masse_acti  %fill=% genre | genre) +
 
 -   Les hommes semblent un peu plus actifs que les femmes même si l'activité globale reste faible dans les 2 groupes.
 
--   On peut voir que par rappport à leur poids, leur indice d\'activité physique est bas dans les 2 groupes.
+-   On peut voir que par rappport à leur poids, leur indice d'activité physique est bas dans les 2 groupes.
 
 ## Tests d'hypothèses
 
@@ -333,7 +333,7 @@ chart(data = biometry2, masse ~ genre) +
 <!-- Vérification des conditions d'application -->
 
 ```{r test_t_1}
-t.test(data = biometry2, masse ~ genre, alternative = "two.sided", conf.level = 0.95,var.equal = TRUE)
+t.test(data = biometry2, masse ~ genre, alternative = "greater", conf.level = 0.95,var.equal = TRUE)
 ```
 
 <!-- Interprétation statistique et biologique -->
