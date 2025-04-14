@@ -234,22 +234,25 @@ chart(data = biometry3, tour_tai_tai ~ genre)+
 
 ```{r indice4}
 # Calcul de la ou des variables reprenant l'indice sous forme numérique (et facteur)
+biometry4 <- smutate(biometry, masse_acti = activite_physique / masse )
 ```
 
 <!--% Graphique ou tableau utilisant l'indice calculé.-->
 
 ```{r plot_indice4}
 # Graphique ou tableau utilisant l'indice calculé.
-
+chart(data = biometry4, ~ masse_acti  %fill=% genre | genre) +
+  geom_histogram( ) +
+  labs(y = "Effectifs") 
 ```
 
 <!--% Interprétation en quelques points du graphique ou tableau. -->
 
--   ...
+-   Peu de personnes font suffisamment d'activité physique par semaine.
 
--   ...
+-   Les hommes semblent un peu plus actifs que les femmes même si l'activité globale reste faible dans les 2 groupes.
 
--   ...
+-   On peut voir que par rappport à leur poids, leur indice d\'activité physique est bas dans les 2 groupes.
 
 ## Tests d'hypothèses
 
@@ -335,7 +338,10 @@ Nous pouvons observer que le rapport entre le rapport de tour de taille - tour d
 <!--% Graphique ou tableau présentant les données par rapport au test à réaliser. -->
 
 ```{r plot_t_2}
-
+chart(biometry3, activite_physique ~ genre) +
+  geom_jitter(alpha = 0.3, width = 0.2) +
+  stat_summary(geom = "point", fun = "mean", size = 2) +
+  stat_summary(geom = "errorbar", width = 0.1, fun.data = "mean_cl_normal", fun.args=list(conf.int = 0.95))
 ```
 
 <!--% Hypothèse nulle et alternative -->
