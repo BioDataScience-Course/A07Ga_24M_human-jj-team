@@ -396,7 +396,10 @@ Nous pouvons observer qu'il y a une différence significative entre l'activité 
 <!--% Graphique ou tableau présentant les données par rapport au test à réaliser. -->
 
 ```{r plot_anova1_2}
-
+chart(data = biometry3, masse ~ alimentation ) +
+  geom_violin() +
+  geom_jitter(width = 0.05, alpha = 0.5 ) + 
+  stat_summary(geom = "point", fun = "mean", color = "red", size = 3)
 ```
 
 <!--% Hypothèse nulle et alternative -->
