@@ -335,7 +335,10 @@ Nous pouvons observer que le rapport entre le rapport de tour de taille - tour d
 <!--% Graphique ou tableau présentant les données par rapport au test à réaliser. -->
 
 ```{r plot_t_2}
-
+chart(biometry3, activite_physique ~ genre) +
+  geom_jitter(alpha = 0.3, width = 0.2) +
+  stat_summary(geom = "point", fun = "mean", size = 2) +
+  stat_summary(geom = "errorbar", width = 0.1, fun.data = "mean_cl_normal", fun.args=list(conf.int = 0.95))
 ```
 
 <!--% Hypothèse nulle et alternative -->
