@@ -423,6 +423,8 @@ anova(ali_masse_anova <- lm(data = biometry3, masse ~ alimentation)) |> tabulari
 
 <!--% Interprétation statistique et biologique -->
 
+Nous pouvons observer qu'il n' y a pas de différence significative entre les différents régimes étudiés au seuil alpha de 5% ( ANOVA, F = 2,71, DF = 2 & 141, valeur p = 0.0701).
+
 <!--# Travaillez jusqu'ici pour le module 9. Commencez à rédiger la partie résultats avec la description des données. -->
 
 ### ANOVA à deux facteurs 1
