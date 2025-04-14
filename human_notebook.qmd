@@ -221,11 +221,7 @@ chart(data = biometry3, tour_tai_tai ~ genre)+
 <!--% Interprétation en quelques points du graphique ou tableau. -->
 
 -   Les hommes ont en moyenne un rapport tour de taille - taille un peu plus faible que les femmes.
-
-<!-- -->
-
 -   Les femmes ont une plus grande variabilité que les hommes pour le rapport tour de taille - taille
-
 -   Chez les hommes et les femmes, la moyenne du rapport est assez proche de la médiane, ce qui nous indique que la distribution est relativement symétrique.
 
 ### Indice 4
