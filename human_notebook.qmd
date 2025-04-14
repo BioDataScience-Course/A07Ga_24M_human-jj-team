@@ -363,6 +363,8 @@ t.test(data = biometry3, activite_physique ~ genre, alternative = "greater", con
 
 <!--% Interprétation statistique et biologique -->
 
+Nous pouvons observer qu'il y a une différence significative entre l'activité physique des hommes et l'activité physique des femmes au seuil alpha de 5% (T-test = 2.6485, ddl = 142, p-value = 0.0045). L'activité physique des femmes est supérieure à l'activité physique des hommes.
+
 <!--# Travaillez jusqu'ici pour le module 8. Commencez à travailler sur le rapport (intro, mat&met). -->
 
 ### ANOVA à un facteur 1
