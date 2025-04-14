@@ -252,7 +252,7 @@ chart(data = biometry4, ~ masse_acti  %fill=% genre | genre) +
 
 -   Les hommes semblent un peu plus actifs que les femmes même si l'activité globale reste faible dans les 2 groupes.
 
--   On peut voir que par rappport à leur poids, leur indice d\'activité physique est bas dans les 2 groupes.
+-   On peut voir que par rappport à leur poids, leur indice d'activité physique est bas dans les 2 groupes.
 
 ## Tests d'hypothèses
 
@@ -324,6 +324,10 @@ Nous pouvons observer que le rapport entre le rapport de tour de taille - tour d
 ```
 
 <!-- Hypothèse nulle et alternative -->
+
+H0 :
+
+H1 :
 
 <!-- Vérification des conditions d'application -->
 
