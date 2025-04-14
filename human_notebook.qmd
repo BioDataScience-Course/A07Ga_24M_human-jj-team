@@ -287,8 +287,8 @@ tabularise(chi2_IMC)
 <!--% Graphique ou tableau présentant les données par rapport au test à réaliser. -->
 
 ```{r plot_chi2_2}
-rap_tai_tai_tab <- table( rap_tai_tai = biometry3$tour_tai_tai, genre = biometry3$genre )
-tabularise(rap_tai_tai_tab)
+rap_tai_han_tab <- table( rap_tai_han = biometry3$rap_tai_han, régime = biometry3$alimentation )
+tabularise(rap_tai_han_tab)
 ```
 
 <!--% Hypothèse nulle et alternative -->
