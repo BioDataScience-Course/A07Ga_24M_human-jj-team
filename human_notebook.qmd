@@ -325,10 +325,6 @@ Nous pouvons observer que le rapport entre le rapport de tour de taille - tour d
 
 <!-- Hypothèse nulle et alternative -->
 
-H0 :
-
-H1 :
-
 <!-- Vérification des conditions d'application -->
 
 ```{r test_t_1}
