@@ -162,9 +162,9 @@ tabularise(rap_tai_han_table)
 
 -   Nous pouvons remarquer que le rapport taille-hanche est en moyenne plus à risque chez les femmes que chez les hommes.
 
--   ...
+-   En observant uniquement chez les hommes, on peut remarquer que plus d'hommes sont à risques.
 
--   ...
+-   En observant uniquement chez les femmes, on peut remarquer que moins de femmes sont à risques.
 
 ### Indice 2
 
@@ -293,13 +293,20 @@ tabularise(rap_tai_han_tab)
 
 <!--% Hypothèse nulle et alternative -->
 
+H0 : Indépendance entre les caractères rapport de tour de taille - tour de hanche et le régime alimentaire.
+
+H1 : Dépendance entre les caractères rapport de tour de taille - tour de hanche et le régime alimentaire.
+
 <!--% Vérification des conditions d'application -->
 
 ```{r test_chi2_2}
-
+chi2_raptaihan <- chisq.test(rap_tai_han_tab)
+tabularise(chi2_raptaihan)
 ```
 
 <!--% Interprétation statistique et biologique -->
+
+Nous pouvons observer que le rapport entre le rapport de tour de taille - tour de hanche et le régime alimentaire n'est significativement pas dépendant au seuil alpha de 5% (X\^2 = 3.86, ddl = 2, p-value = 0.145).
 
 <!--# Travaillez jusqu'ici pour le module 7. -->
 
