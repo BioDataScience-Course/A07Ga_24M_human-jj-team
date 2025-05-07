@@ -326,9 +326,13 @@ chart(data = biometry2, masse ~ genre) +
 
 <!-- Hypothèse nulle et alternative -->
 
--   H0 : \\overline{masse{H}} - \\overline{masse{F}} = 0
+$$
+H0 : \overline{masse{H}} - \overline{masse{F}} = 0
+$$
 
--   H1 : \\overline{masse{H}} - \\overline{masse{F}} \> 0
+$$
+H1 : \overline{masse{H}} - \overline{masse{F}} > 0
+$$
 
 <!-- Vérification des conditions d'application -->
 
