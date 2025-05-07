@@ -378,6 +378,8 @@ Nous pouvons observer qu'il y a une différence significative entre l'activité 
 <!--% Graphique ou tableau présentant les données par rapport au test à réaliser. -->
 
 ```{r plot_anova1_1}
+biometry2_anova <- lm(data = biometry2, masse ~ IMC ) 
+anova(biometry2_anova) |> tabularise()
 
 ```
 
