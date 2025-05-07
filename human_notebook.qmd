@@ -405,6 +405,8 @@ $$
 
 <!--% Interprétation statistique et biologique -->
 
+-   Nous constatons qu'il y a une différence significative au seuil alpha de 5%, cela signifie qu'au moins deux des groupes IMC ( sous-poids, poids normal, surpoids et obèse) diffèrent.( ddl = 3 & 139, F-value = 82.1, p-value = 1.29 \* 10 \^(-30)).
+
 ### ANOVA à un facteur 2
 
 <!--% Graphique ou tableau présentant les données par rapport au test à réaliser. -->
