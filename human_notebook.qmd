@@ -382,9 +382,11 @@ Nous pouvons observer qu'il y a une différence significative entre l'activité 
 <!--% Graphique ou tableau présentant les données par rapport au test à réaliser. -->
 
 ```{r plot_anova1_1}
-biometry2_anova <- lm(data = biometry2, masse ~ IMC ) 
-anova(biometry2_anova) |> tabularise()
-
+biometry2 <- sdrop_na(biometry2)
+chart(data = biometry2, masse ~ IMC) +
+  geom_boxplot() +
+  geom_jitter(width = 0.05, alpha = 0.5 ) + 
+  stat_summary(geom = "point", fun = "mean", color = "red", size = 3)
 ```
 
 <!--% Hypothèse nulle et alternative -->
@@ -400,7 +402,7 @@ $$
 <!--% Vérification des conditions d'application -->
 
 ```{r test_anova1_1}
-
+anova( biometry2_anova <- lm(data = biometry2, masse ~ IMC)) |> tabularise()
 ```
 
 <!--% Interprétation statistique et biologique -->
