@@ -392,7 +392,7 @@ chart(data = biometry2, masse ~ IMC) +
 <!--% Hypothèse nulle et alternative -->
 
 $$
-H_0: \mu_m = \mu_i
+H_0: \mu_1 = \mu_2 = \mu_3 = \mu_4
 $$
 
 $$
