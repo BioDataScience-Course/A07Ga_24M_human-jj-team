@@ -383,6 +383,14 @@ Nous pouvons observer qu'il y a une différence significative entre l'activité 
 
 <!--% Hypothèse nulle et alternative -->
 
+$$
+H_0: \mu_m = \mu_i
+$$
+
+$$
+H_1: \exists(i,j) \mathrm{\ tel\ que\ } \mu_i \neq \mu_j
+$$
+
 <!--% Vérification des conditions d'application -->
 
 ```{r test_anova1_1}
