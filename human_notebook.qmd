@@ -469,6 +469,9 @@ Nous pouvons observer qu'il n' y a pas de différence significative entre les di
 
 <!--% Hypothèse nulle et alternative -->
 
+H_0 : pas d'interactions entre les variables sucre et genre
+H_1: interactions entre les variables sucre et genre
+
 <!--% Vérification des conditions d'application -->
 
 ```{r test_anova2_2}
@@ -476,6 +479,8 @@ Nous pouvons observer qu'il n' y a pas de différence significative entre les di
 ```
 
 <!--% Interprétation statistique et biologique -->
+
+Nous observons qu'il n'y a pas d'interactions entre les variables sucre et genre (A REFAIRE !!!!)
 
 # Discussion et conclusions
 
