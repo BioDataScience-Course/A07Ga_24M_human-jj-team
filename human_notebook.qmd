@@ -20,7 +20,7 @@ if (!"tools:tests" %in% search())
   source(here::here("tests/tools_tests.R"), attach(NULL, name = "tools:tests"))
 
 # Configuration de l'environnement SciViews::R
-SciViews::R("infer", lang = "fr")
+SciViews::R("infer","model", lang = "fr")
 ```
 
 # Introduction et but
@@ -464,7 +464,12 @@ Nous pouvons observer qu'il n' y a pas de différence significative entre les di
 <!--% Graphique ou tableau présentant les données par rapport au test à réaliser. -->
 
 ```{r plot_anova2_2}
-
+biometry3 %>.%
+  sgroup_by(.,sucre, genre)%>.%
+  ssummarise(.,masse_corr_moy = mean(masse_corr))%>.%
+  chart(., masse_corr_moy ~ sucre %col=% genre %group=% genre) +
+  geom_line() +
+  geom_point()
 ```
 
 <!--% Hypothèse nulle et alternative -->
@@ -472,7 +477,8 @@ Nous pouvons observer qu'il n' y a pas de différence significative entre les di
 <!--% Vérification des conditions d'application -->
 
 ```{r test_anova2_2}
-
+biometry3_anova2 <- lm(data = biometry3, masse_corr ~ sucre * genre)
+anova(biometry3_anova2) |>tabularise()
 ```
 
 <!--% Interprétation statistique et biologique -->
