@@ -446,7 +446,13 @@ Nous pouvons observer qu'il n' y a pas de différence significative entre les di
 <!--% Graphique ou tableau présentant les données par rapport au test à réaliser. -->
 
 ```{r plot_anova2_1}
+biometry2 %>.%
+  sgroup_by(.,intolerance_gluten,intolerance_lactose) %>.%
+  ssummarise(., moyenne = fmean(masse_corr)) ->bio
 
+chart(data = bio, moyenne ~ intolerance_gluten %col=% intolerance_lactose %group=% intolerance_lactose) +
+    geom_line() +
+    geom_point()
 ```
 
 <!--% Hypothèse nulle et alternative -->
