@@ -460,7 +460,7 @@ chart(data = bio, moyenne ~ intolerance_gluten %col=% intolerance_lactose %group
 <!--% Vérification des conditions d'application -->
 
 ```{r test_anova2_1}
-
+anova(mass_interaov2 <- lm(data =  biometry2, masse_corr ~ intolerance_gluten * intolerance_lactose)) |> tabularise()
 ```
 
 <!--% Interprétation statistique et biologique -->
