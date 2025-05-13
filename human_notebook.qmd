@@ -237,8 +237,11 @@ biometry4 <- smutate(biometry, masse_acti = activite_physique / masse )
 ```{r plot_indice4}
 # Graphique ou tableau utilisant l'indice calculé.
 chart(data = biometry4, ~ masse_acti  %fill=% genre | genre) +
-  geom_histogram( ) +
-  labs(y = "Effectifs") 
+  geom_histogram(data = sselect(biometry4, -genre),
+    fill = "grey", bins = 25) +
+  geom_histogram(show.legend = FALSE, bins = 25) + 
+  labs(y = "Effectifs") +
+  scale_fill_viridis_d()
 ```
 
 <!--% Interprétation en quelques points du graphique ou tableau. -->
