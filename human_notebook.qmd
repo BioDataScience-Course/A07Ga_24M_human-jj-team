@@ -162,9 +162,9 @@ tabularise(rap_tai_han_table)
 
 -   Nous pouvons remarquer que le rapport taille-hanche est en moyenne plus à risque chez les femmes que chez les hommes.
 
--   En observant uniquement chez les hommes, on peut remarquer que plus d'hommes sont à risques.
+-   En observant uniquement chez les hommes, on peut remarquer qu'il y a plus d'hommes à risques que d'hommes "normaux".
 
--   En observant uniquement chez les femmes, on peut remarquer que moins de femmes sont à risques.
+-   En observant uniquement chez les femmes, on peut remarquer que moins de femmes sont à risques par rapport au nombre total de femmes.
 
 ### Indice 2
 
@@ -460,7 +460,7 @@ chart(data = bio, moyenne ~ intolerance_gluten %col=% intolerance_lactose %group
 <!--% Vérification des conditions d'application -->
 
 ```{r test_anova2_1}
-
+anova(mass_interaov2 <- lm(data =  biometry2, masse_corr ~ intolerance_gluten * intolerance_lactose)) |> tabularise()
 ```
 
 <!--% Interprétation statistique et biologique -->
@@ -480,7 +480,33 @@ biometry3 %>.%
 
 <!--% Hypothèse nulle et alternative -->
 
+<<<<<<< HEAD
 H_0 : pas d'interactions entre les variables sucre et genre H_1: interactions entre les variables sucre et genre
+=======
+Hypothèses pour la variable sucre :
+
+$$ H_0 : \mu_j = \mu_ra = \mu_re = \mu_s
+$$
+
+$$
+H_1: \exists(i, j) \mathrm{\ tel\ que \ } \mu_i \neq \mu_j
+$$
+
+Hypothèses pour la variable genre :
+
+$$ H_0 : \mu_h = \mu_f
+$$
+
+$$
+H_1: \exists(i, j) \mathrm{\ tel\ que \ } \mu_i \neq \mu_j
+$$
+
+Hypothèses pour les interactions entre les deux variables :
+
+H_0 : pas d'interactions entre les variables sucre et genre
+
+H_1: interactions entre les variables sucre et genre
+>>>>>>> b3c5329e1d55a392592968f7aab24e8c54ee9c95
 
 <!--% Vérification des conditions d'application -->
 
@@ -491,21 +517,23 @@ anova(biometry3_anova2) |>tabularise()
 
 <!--% Interprétation statistique et biologique -->
 
-Nous observons qu'il n'y a pas d'interactions entre les variables sucre et genre (A REFAIRE !!!!)
+Nous pouvons observer qu'il y a une différence significative entre les régimes pour les deux variables sucre et genre au taux alpha de 5% (ANOVAs = 1.243, df = 3, p-value = 2.97 \* 10^-07^ ) et (ANOVAg = 20.794, df = 1, p-value = 1.15 \* 10\^-05).
+
+Nous observons qu'il y a des interactions entre les variables sucre et genre au taux alpha de 5% (ANOVA = 0.862, df = 3, p-value = 4.63 \* 10\^-05).
 
 # Discussion et conclusions
 
 <!--% Reprenez ci-dessous sous forme d'éléments de listes brefs les résultats les plus importants que vous retirez de votre analyse. Ils doivent vous guider pour décider quels tests (les plus intéressants) vous allez conserver dans le rapport. -->
 
--   ...
+-   Rapport taille-hanche
 
--   ...
+-   Régime alimentaire - IMC
 
--   ...
+-   Masse-alimentation
 
--   ...
+-   Masse -sucre
 
--   ...
+-   Masse - activité physique
 
 <!--# Important : ce document doit compiler SANS ERREURS avec le bouton 'Rendu' sinon le travail sera sanctionné lourdement. La compilation du document Quarto est maintenant considérée comme acquise. -->
 
