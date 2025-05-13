@@ -45,6 +45,8 @@ SciViews::R("infer", lang = "fr")
 
 Pour effectuer nos analyses, chacun des expérimentateurs ont récoltés différentes données sur quatre sujets volontaires différents, ce qui nous a permis d'obtenir un nombre de données suffisant pour effectuer une analyse correcte. Les variables mesurées par les expérimentateurs comprenaient notamment des paramètres physique tel que la masse, la taille, les mensurations mais aussi des mesures telles que le genre, l'alimentation, le sommeil,... et ont été retranscrites dans un dictionnaire de données commun à tous les expérimentateurs.
 
+Afin de limiter les biais liés aux mesures sujettes à des variations telle que la masse, nous avons réalisé une intercalibration. Cette démarche nous à permis d'assurer une cohérence et une comparabilité des données collectées tout au long de l'étude.
+
 # Résultats
 
 ## Description des données
