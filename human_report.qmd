@@ -78,24 +78,28 @@ biometry1 <- smutate(biometry, IMC = masse_corr/(taille/100)^2)
 biometry3 <- smutate(biometry,  tour_tai_tai = tour_taille/taille  )
 ```
 
-```{r taille hanche}
-chart(biometry, tour_taille ~tour_hanche %shape=% genre) +
-  geom_point()
-```
-
 ```{r masse genre}
-chart(data = biometry, ~ masse %fill=%genre | genre )+
+chart(data = biometry, ~ masse %fill=% genre | genre )+
   geom_histogram(data = sselect(biometry, -genre), fill = "grey", bins = 35)+
   geom_histogram()+
   ylab("Effectifs")
 ```
 
-```{r hanche masse}
-chart(data = biometry, tour_hanche ~ masse %fill=% genre | genre) +
-geom_boxplot()+
-  scale_fill_viridis_d() +
-  stat_summary(fun.data = biometry, hjust = 0.5, position = position_dodge(0.75))
+```{r taille hanche}
+chart(biometry, tour_taille ~tour_hanche %shape=% genre) +
+  geom_point()
 ```
+
+```{r fast food}
+chart(biometry, ~ fast_food %fill=% genre |genre) +
+  geom_histogram(data = sselect(biometry, - genre), fill = "grey", bins = 13) + 
+  geom_histogram(show.legend = FALSE, bins = 13) + 
+  ylab("Effectifs")
+```
+
+Lorsque nous comparons les hommes et les femmes par rapport à différentes variables, ici le tour de taille, le tour de hanche, le nombre de fast-foods consommés par mois et la masse, nous pouvons tirer plusieurs conclusions logiques sur base des différents graphiques ci-dessus : tout d'abord, les hommes présentent une masse moyenne plus élevée que les femmes ; ensuite, que les femmes ont, en moyenne, un rapport tour de taille - tour de hanche plus élevé que les hommes ; et enfin que les hommes ont une plus grande tendance à fréquenter les fast-foods que les femmes. Certaines de ces conclusions découlent directement de la morphologie différente entre les hommes et les femmes, mais nous permettent d'avoir des bases sur lesquelles comparer nos données calculées par la suite.
+
+Ces graphiques nous servent surtout pour visualiser nos données et comment elles interagissent les unes avec les autres.
 
 ## Tests d'hypothèses
 
