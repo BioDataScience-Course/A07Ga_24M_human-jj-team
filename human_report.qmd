@@ -107,31 +107,29 @@ Ces graphiques nous servent surtout pour visualiser nos données et comment elle
 
 <!--% Sélectionnez les 4 tests d'hypothèses les plus pertinents depuis `human_notebook.qmd`, ainsi bien sûr que les calculs des indices nécessaires que vous placerez juste au-dessus de vos tests. Ces tests doivent répondre à votre question de recherche (le but). Reformulez les interprétations pour former un texte qui se lit en continu. -->
 
-```{r rap tai han}
-#Attribution des indices
-biometry <- smutate(biometry, rap_tai_han = case_when(
-    rap_tai_han < 0.85 & genre == "F" ~ "normal",
-    rap_tai_han >= 0.85 & genre == "F" ~ "à risque",
-    rap_tai_han < 0.90 & genre == "H" ~ "normal",
-    rap_tai_han >= 0.90 & genre == "H" ~ "à risque"
-  ))
-#Graphique du rap tai han
-rap_tai_han_table <- table(sselect(biometry, genre, rap_tai_han))
-
-tabularise(rap_tai_han_table)
+```{r rap tai han - ali}
+#Calcul du tableau
+rap_tai_han_tab <- table( rap_tai_han = biometry3$rap_tai_han, régime = biometry3$alimentation )
+tabularise(rap_tai_han_tab)
+#Test chi2
+chi2_raptaihan <- chisq.test(rap_tai_han_tab)
+tabularise(chi2_raptaihan)
 ```
 
-```{r ali-IMC}
-#Graphique ou tableau utilisant l'indice calculé.
+```{r ali- IMC}
+#Calcul IMC
   biometry2 <- smutate(biometry1, IMC = case_when(
   IMC < 18.5 ~" sous poids",
   IMC >= 18.5 & IMC < 25 ~" poids normal ",
   IMC >= 25 & IMC < 30 ~" surpoids",
   IMC >= 30 ~ "obèse"))
-#Tableau 
-  IMC_tab <- table( Régime = biometry2$alimentation, IMC = biometry2$IMC )
+#Tableau alimentation - IMC
+IMC_tab <- table( Régime = biometry2$alimentation, IMC = biometry2$IMC )
 # Tableau formaté
  tabularise(IMC_tab)
+#Test chi2
+ chi2_IMC <- chisq.test(IMC_tab)
+tabularise(chi2_IMC)
 ```
 
 ```{r masse-ali}
