@@ -31,17 +31,19 @@ SciViews::R("infer", lang = "fr")
 
 <!--# Ce projet porte sur la santé humaine liée à l'obésité, à la façon de se nourrir et aux activités réalisées (plus ou moins sédentaire ou actif) ... Réalisez des recherches bibliographiques afin d'avoir une vision précise de la thématique. Existe-t-il des indicateurs calculables pour quantifier l'état de santé d'un individu, par exemple ? Naturellement, ces indicateurs doivent être calculables sur bases des variables mesurées dans votre jeu de données. Focalisez-vous donc sur ces variables-là. -->
 
-Au cours des dix dernières années, la santé humaine s'est dégradée. L'obésité est en grande partie responsable de cette dégradation. En effet, en 2022, l'OMS avait relevé qu'au moins une personne sur 8 était obèse. L'obésité est une maladie définie comme une accumulation excessive ou anormale de graisse et qui représente un risque pour la santé, cette condition pourrait entraîner des complications comme des problèmes de cœur, des cancers, des troubles musculo-squelettiques ou encore des troubles mentaux.
+Au cours des dix dernières années, la santé humaine s'est dégradée. L'obésité est en grande partie responsable de cette dégradation. En effet, selon l'Organisation Mondiale de la Santé (OMS,2024), en 2022, il avait été relevé qu'au moins une personne sur 8 était obèse. L'obésité est une maladie définie comme une accumulation excessive ou anormale de graisse et qui représente un risque pour la santé, cette condition pourrait entraîner des complications comme des problèmes de cœur, des cancers, des troubles musculo-squelettiques ou encore des troubles mentaux.
 
-Les facteurs influencant l'obésité sont principalement la malnutrition, en outre due à une mauvaise consommation d'aliments trop sucrés ou à haute teneur en graisses, mais également un mode de vie sédentaire. Cepedant l'âge joue aussi un rôle important car nous rencontrons plus de cas atteint de cette maladie avec le temps.
+Les facteurs influençant l'obésité sont principalement la malnutrition, en outre due à une mauvaise consommation d'aliments trop sucrés ou à haute teneur en graisses, mais également un mode de vie sédentaire. Cependant l'âge joue aussi un rôle important car nous rencontrons plus de cas atteints de cette maladie lorsque l'âge augmente.
 
-Il est possible de calculer si un individu est en condition d'obésité grâce à des indices. Selon le travail
+Il est possible de calculer si un individu est en condition d'obésité grâce à des indices. Selon le travail de Lebacq (2015), les indices permettant ces calculs sont l'IMC, le tour de taille et le ratio tour de taille par taille.
+
+Nous avons utilisé toutes ces informations afin de répondre au mieux à notre question de recherche.
 
 # But
 
 <!--% Formulez ici de façon concise et précise votre question de recherche en 1 à 2 phrases. -->
 
-...Votre but ici...
+Tester et calculer les indices permettant de quantifier l'obésité des personnes sur un échantillon d'une population belge, du Hainaut, âgée de 18ans ou plus afin d'établir des liens entre la malnutrition et le mode de sédentarisation.
 
 # Matériel et méthodes
 
@@ -51,6 +53,10 @@ Pour effectuer nos analyses, chacun des expérimentateurs ont récoltés différ
 
 Afin de limiter les biais liés aux mesures sujettes à des variations telle que la masse, nous avons réalisé une intercalibration. Cette démarche nous à permis d'assurer une cohérence et une comparabilité des données collectées tout au long de l'étude.
 
+Dans le respect du Règlement Général sur la Protection des Données (RGPD), les données recueillies ont été pseudonymisées. Cette mesure garantit la confidentialité des sujets étudiés tout en permettant l'analyse scientifique de nos résultats.
+
+L'analyse des données, ainsi que leur description et les tests statistiques effectués ont été réalisés dans l'environnement SciViews Box 2024, en utilisant Saturn Cloud (Linux). Le logiciel R ( avec la version : rR.version.string ) a été utilisé pour tous les traitements statistiques.
+
 # Résultats
 
 ## Description des données
@@ -59,13 +65,93 @@ Afin de limiter les biais liés aux mesures sujettes à des variations telle que
 
 <!--# N'oubliez pas que ce document doit pouvoir compiler indépendamment du reste. Cela implique que vous ajoutiez un chunk d'importation des données et que vous recalculiez tout ce qui doit l'être... Par contre, un simple copier-coller de toute la partie résultats du bloc-notes ne sera pas considéré comme un travail réalisé : vous devez sélectionner, et éventuellement remanier un peu le code, pour ne conserver que ce qui est utile ici. -->
 
-...Vos descriptions des données ici...
+```{r setup et import}
+SciViews::R("infer","model", lang = "fr")
+biometry <- read("data/biometry.rds")
+```
+
+```{r calcul environment}
+#Biometry
+biometry <- smutate(biometry, 
+  rap_tai_han = tour_taille/tour_hanche)
+#Biometry1
+biometry1 <- smutate(biometry, IMC = masse_corr/(taille/100)^2)
+#Biometry3
+biometry3 <- smutate(biometry,  tour_tai_tai = tour_taille/taille  )
+```
+
+```{r taille hanche}
+chart(biometry, tour_taille ~tour_hanche %shape=% genre) +
+  geom_point()
+```
+
+```{r masse genre}
+chart(data = biometry, ~ masse %fill=%genre | genre )+
+  geom_histogram(data = sselect(biometry, -genre), fill = "grey", bins = 35)+
+  geom_histogram()+
+  ylab("Effectifs")
+```
+
+```{r hanche masse}
+chart(data = biometry, tour_hanche ~ masse %fill=% genre | genre) +
+geom_boxplot()+
+  scale_fill_viridis_d() +
+  stat_summary(fun.data = biometry, hjust = 0.5, position = position_dodge(0.75))
+```
 
 ## Tests d'hypothèses
 
 <!--% Sélectionnez les 4 tests d'hypothèses les plus pertinents depuis `human_notebook.qmd`, ainsi bien sûr que les calculs des indices nécessaires que vous placerez juste au-dessus de vos tests. Ces tests doivent répondre à votre question de recherche (le but). Reformulez les interprétations pour former un texte qui se lit en continu. -->
 
-...Vos tests d'hypothèses ici...
+```{r rap tai han}
+#Attribution des indices
+biometry <- smutate(biometry, rap_tai_han = case_when(
+    rap_tai_han < 0.85 & genre == "F" ~ "normal",
+    rap_tai_han >= 0.85 & genre == "F" ~ "à risque",
+    rap_tai_han < 0.90 & genre == "H" ~ "normal",
+    rap_tai_han >= 0.90 & genre == "H" ~ "à risque"
+  ))
+#Graphique du rap tai han
+rap_tai_han_table <- table(sselect(biometry, genre, rap_tai_han))
+
+tabularise(rap_tai_han_table)
+```
+
+```{r ali-IMC}
+#Graphique ou tableau utilisant l'indice calculé.
+  biometry2 <- smutate(biometry1, IMC = case_when(
+  IMC < 18.5 ~" sous poids",
+  IMC >= 18.5 & IMC < 25 ~" poids normal ",
+  IMC >= 25 & IMC < 30 ~" surpoids",
+  IMC >= 30 ~ "obèse"))
+#Tableau 
+  IMC_tab <- table( Régime = biometry2$alimentation, IMC = biometry2$IMC )
+# Tableau formaté
+ tabularise(IMC_tab)
+```
+
+```{r masse-ali}
+#Graphique anova
+chart(data = biometry3, masse ~ alimentation ) +
+  geom_violin() +
+  geom_jitter(width = 0.05, alpha = 0.5 ) + 
+  stat_summary(geom = "point", fun = "mean", color = "red", size = 3)
+#Tableau test anova
+anova(ali_masse_anova <- lm(data = biometry3, masse ~ alimentation)) |> tabularise()
+```
+
+```{r sucre genre}
+#Graphique anova
+biometry3 %>.%
+  sgroup_by(.,sucre, genre)%>.%
+  ssummarise(.,masse_corr_moy = mean(masse_corr))%>.%
+  chart(., masse_corr_moy ~ sucre %col=% genre %group=% genre) +
+  geom_line() +
+  geom_point()
+#Tableau anova
+biometry3_anova2 <- lm(data = biometry3, masse_corr ~ sucre * genre)
+anova(biometry3_anova2) |>tabularise()
+```
 
 # Discussion et conclusions
 
