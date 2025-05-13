@@ -480,8 +480,7 @@ biometry3 %>.%
 
 <!--% Hypothèse nulle et alternative -->
 
-H_0 : pas d'interactions entre les variables sucre et genre
-H_1: interactions entre les variables sucre et genre
+H_0 : pas d'interactions entre les variables sucre et genre H_1: interactions entre les variables sucre et genre
 
 <!--% Vérification des conditions d'application -->
 
