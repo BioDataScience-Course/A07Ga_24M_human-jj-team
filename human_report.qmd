@@ -108,6 +108,13 @@ Ces graphiques nous servent surtout pour visualiser nos données et comment elle
 <!--% Sélectionnez les 4 tests d'hypothèses les plus pertinents depuis `human_notebook.qmd`, ainsi bien sûr que les calculs des indices nécessaires que vous placerez juste au-dessus de vos tests. Ces tests doivent répondre à votre question de recherche (le but). Reformulez les interprétations pour former un texte qui se lit en continu. -->
 
 ```{r rap tai han - ali}
+#Calcul de l'indice
+biometry3 <- smutate(biometry3, rap_tai_han = case_when(
+    rap_tai_han < 0.85 & genre == "F" ~ "normal",
+    rap_tai_han >= 0.85 & genre == "F" ~ "à risque",
+    rap_tai_han < 0.90 & genre == "H" ~ "normal",
+    rap_tai_han >= 0.90 & genre == "H" ~ "à risque"
+  ))
 #Calcul du tableau
 rap_tai_han_tab <- table( rap_tai_han = biometry3$rap_tai_han, régime = biometry3$alimentation )
 tabularise(rap_tai_han_tab)
@@ -155,6 +162,12 @@ biometry3_anova2 <- lm(data = biometry3, masse_corr ~ sucre * genre)
 anova(biometry3_anova2) |>tabularise()
 ```
 
+Grâce au premier test chi2, nous pouvons observer que le rapport entre le rapport de tour de taille - tour de hanche et le régime alimentaire n'est significativement pas dépendant au seuil alpha de 5% (X\^2 = 3.86, ddl = 2, p-value = 0.145), et contrairement, grâce au deuxième test chi2, nous pouvons observer qu'il y a une dépendance entre le régime alimentaire et l'IMC au seuil alpha de 5% (X\^2 obs = 6.39, ddl = 6, p-value = 0.381). De ces deux tests, nous pouvons dire que le régime alimentaire n'influence pas toujours la morphologie de l'individu.
+
+Le troisième test d'hypothèse est un test ANOVA à un facteur dont la conclusion est qu'il n'y a pas de différence significative entre les différents régimes étudiés au seuil alpha de 5% (ANOVA, F = 2.71, ddl = 2, p-value = 0.0701).
+
+Le quatrième test d'hypothèse est un test ANOVA à deux facteurs dont la conclusion est qu'il y a une différence significative entre les régimes pour les deux variables sucre et genre au taux alpha de 5% (ANOVAs = 1.243, ddl = 3, p-value = 2.97 \* 10^-07^ ) et (ANOVAg = 20.794, ddl = 1, p-value = 1.15 \* 10^-05^ ). Nous observons qu'il y a également des interactions entre les variables sucre et genre au taux alpha de 5% (ANOVA = 0.862, df = 3, p-value = 4.63 \* 10\^-05).
+
 # Discussion et conclusions
 
 <!--% Reprenez les résultats obtenus, discutez-les d'un point de vue biologique en 4 à 5 paragraphes et concluez votre travail. Vous pouvez les mettre également en relation avec vos recherches bibliographiques dans cette section. -->
@@ -168,6 +181,8 @@ Par ailleurs, les résultats de l\'ANOVA révèlent que les intolérances alimen
 En complément, la composition corporelle, ainsi que les mesures de tour de taille et de hanche, se voient influencées par le niveau d\'activité physique. Les individus actifs présentent généralement un meilleur rapport taille/hanche et une masse corporelle plus stable, même en cas de régimes alimentaires différents que ce soit dû aux intolérances ou autres.
 
 Ces constats suggèrent que les habitudes de vie, telles que le régime alimentaire et l\'activité physique, jouent un rôle déterminant dans la répartition de la masse corporelle. Ils permettent également de mieux comprendre les liens entre morphologie, métabolisme et santé. En particulier, la morphologie gynoïde plus fréquente chez les femmes est généralement associée à une meilleure tolérance métabolique, contrairement à l'accumulation de graisse viscérale chez les hommes, qui est un facteur aggravant dans le développement de l\'obésité et de ses complications.
+=======
+
 
 <!--# Important : ce document doit compiler SANS ERREURS avec le bouton 'Rendu' sinon le travail sera sanctionné lourdement. La compilation du document Quarto est maintenant considérée comme acquise. -->
 
