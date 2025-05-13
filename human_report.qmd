@@ -55,6 +55,8 @@ Afin de limiter les biais liés aux mesures sujettes à des variations telle que
 
 Dans le respect du Règlement Général sur la Protection des Données (RGPD), les données recueillies ont été pseudonymisées. Cette mesure garantit la confidentialité des sujets étudiés tout en permettant l'analyse scientifique de nos résultats.
 
+L'analyse des données, ainsi que leur description et les tests statistiques effectués ont été réalisés dans l'environnement SciViews Box 2024, en utilisant Saturn Cloud (Linux). Le logiciel R ( avec la version : rR.version.string ) a été utilisé pour tous les traitements statistiques.
+
 # Résultats
 
 ## Description des données
