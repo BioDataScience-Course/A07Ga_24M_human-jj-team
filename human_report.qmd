@@ -43,7 +43,7 @@ SciViews::R("infer", lang = "fr")
 
 <!--% Cette section doit comprendre une explication technique sur les mesures effectuées et sur le protocole relatif à l'acquisition des données en 3 à 4 paragraphes. Vous ajouterez aussi un paragraphe qui détaille les outils logiciels et statistiques utilisés (logiciels et versions des logiciels). Un simple copier-coller du matériel et méthodes du bloc-notes ne sera PAS considéré comme acceptable. -->
 
-...Votre matmet ici...
+Pour effectuer nos analyses, chacun des expérimentateurs ont récoltés différentes données sur quatre sujets volontaires différents, ce qui nous a permis d'obtenir un nombre de données suffisant pour effectuer une analyse correcte. Les variables mesurées par les expérimentateurs comprenaient notamment des paramètres physique tel que la masse, la taille, les mensurations mais aussi des mesures telles que le genre, l'alimentation, le sommeil,... et ont été retranscrite dans un disctionnaire de données commun à tous les expérimentateurs.
 
 # Résultats
 
