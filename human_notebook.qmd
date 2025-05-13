@@ -162,9 +162,9 @@ tabularise(rap_tai_han_table)
 
 -   Nous pouvons remarquer que le rapport taille-hanche est en moyenne plus à risque chez les femmes que chez les hommes.
 
--   En observant uniquement chez les hommes, on peut remarquer que plus d'hommes sont à risques.
+-   En observant uniquement chez les hommes, on peut remarquer qu'il y a plus d'hommes à risques que d'hommes "normaux".
 
--   En observant uniquement chez les femmes, on peut remarquer que moins de femmes sont à risques.
+-   En observant uniquement chez les femmes, on peut remarquer que moins de femmes sont à risques par rapport au nombre total de femmes.
 
 ### Indice 2
 
@@ -521,15 +521,15 @@ Nous observons qu'il y a des interactions entre les variables sucre et genre au 
 
 <!--% Reprenez ci-dessous sous forme d'éléments de listes brefs les résultats les plus importants que vous retirez de votre analyse. Ils doivent vous guider pour décider quels tests (les plus intéressants) vous allez conserver dans le rapport. -->
 
--   ...
+-   Rapport taille-hanche
 
--   ...
+-   Régime alimentaire - IMC
 
--   ...
+-   Masse-alimentation
 
--   ...
+-   Masse -sucre
 
--   ...
+-   Masse - activité physique
 
 <!--# Important : ce document doit compiler SANS ERREURS avec le bouton 'Rendu' sinon le travail sera sanctionné lourdement. La compilation du document Quarto est maintenant considérée comme acquise. -->
 
