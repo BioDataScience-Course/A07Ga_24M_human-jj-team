@@ -51,6 +51,8 @@ Pour effectuer nos analyses, chacun des expérimentateurs ont récoltés différ
 
 Afin de limiter les biais liés aux mesures sujettes à des variations telle que la masse, nous avons réalisé une intercalibration. Cette démarche nous à permis d'assurer une cohérence et une comparabilité des données collectées tout au long de l'étude.
 
+Dans le respect du Règlement Général sur la Protection des Données (RGPD), les données receuillies ont été pseudonymisées. Cette procédure garantit la confidentialité des sujets tout en permettant l'analyse scientifique de leurs données.
+
 # Résultats
 
 ## Description des données
