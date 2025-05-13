@@ -477,7 +477,11 @@ $$
 H^l_1 : µ_l oui \neq µ_l non 
 $$
 
--   Il n'y a pas d'interactions entre les deux variables
+-   Interactions entre les deux variables
+
+    H0 : pas d'interactions entre les variables
+
+    H1 : interactions entre les variables
 
 <!--% Vérification des conditions d'application -->
 
