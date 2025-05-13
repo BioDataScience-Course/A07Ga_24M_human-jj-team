@@ -480,9 +480,6 @@ biometry3 %>.%
 
 <!--% Hypothèse nulle et alternative -->
 
-<<<<<<< HEAD
-H_0 : pas d'interactions entre les variables sucre et genre H_1: interactions entre les variables sucre et genre
-=======
 Hypothèses pour la variable sucre :
 
 $$ H_0 : \mu_j = \mu_ra = \mu_re = \mu_s
@@ -506,7 +503,6 @@ Hypothèses pour les interactions entre les deux variables :
 H_0 : pas d'interactions entre les variables sucre et genre
 
 H_1: interactions entre les variables sucre et genre
->>>>>>> b3c5329e1d55a392592968f7aab24e8c54ee9c95
 
 <!--% Vérification des conditions d'application -->
 
