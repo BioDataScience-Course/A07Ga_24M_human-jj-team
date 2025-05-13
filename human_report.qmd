@@ -31,11 +31,11 @@ SciViews::R("infer", lang = "fr")
 
 <!--# Ce projet porte sur la santé humaine liée à l'obésité, à la façon de se nourrir et aux activités réalisées (plus ou moins sédentaire ou actif) ... Réalisez des recherches bibliographiques afin d'avoir une vision précise de la thématique. Existe-t-il des indicateurs calculables pour quantifier l'état de santé d'un individu, par exemple ? Naturellement, ces indicateurs doivent être calculables sur bases des variables mesurées dans votre jeu de données. Focalisez-vous donc sur ces variables-là. -->
 
-Au cours des dix dernières années, la santé humaine s'est dégradée. L'obésité est en grande partie responsable de cette dégradation. En effet, en 2022, l'OMS avait relevé qu'au moins une personne sur 8 était obèse. L'obésité est une maladie définie comme une accumulation excessive ou anormale de graisse et qui représente un risque pour la santé, cette condition pourrait entraîner des complications comme des problèmes de cœur, des cancers, des troubles musculo-squelettiques ou encore des troubles mentaux.
+Au cours des dix dernières années, la santé humaine s'est dégradée. L'obésité est en grande partie responsable de cette dégradation. En effet, selon l'Organisation Mondiale de la Santé (OMS,2024), en 2022, il avait été relevé qu'au moins une personne sur 8 était obèse. L'obésité est une maladie définie comme une accumulation excessive ou anormale de graisse et qui représente un risque pour la santé, cette condition pourrait entraîner des complications comme des problèmes de cœur, des cancers, des troubles musculo-squelettiques ou encore des troubles mentaux.
 
-Les facteurs influencant l'obésité sont principalement la malnutrition, en outre due à une mauvaise consommation d'aliments trop sucrés ou à haute teneur en graisses, mais également un mode de vie sédentaire. Cepedant l'âge joue aussi un rôle important car nous rencontrons plus de cas atteint de cette maladie avec le temps.
+Les facteurs influençant l'obésité sont principalement la malnutrition, en outre due à une mauvaise consommation d'aliments trop sucrés ou à haute teneur en graisses, mais également un mode de vie sédentaire. Cependant l'âge joue aussi un rôle important car nous rencontrons plus de cas atteints de cette maladie lorsque l'âge augmente.
 
-Il est possible de calculer si un individu est en condition d'obésité grâce à des indices. Selon le travail de Lebacq(2015), les indices permettant ces calculs sont l'IMC, le tour de taille et le ratio tour de taille par taille.
+Il est possible de calculer si un individu est en condition d'obésité grâce à des indices. Selon le travail de Lebacq (2015), les indices permettant ces calculs sont l'IMC, le tour de taille et le ratio tour de taille par taille.
 
 Nous avons utilisé toutes ces informations afin de répondre au mieux à notre question de recherche.
 
