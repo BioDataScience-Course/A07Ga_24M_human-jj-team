@@ -157,7 +157,7 @@ anova(biometry3_anova2) |>tabularise()
 
 <!--% Reprenez les résultats obtenus, discutez-les d'un point de vue biologique en 4 à 5 paragraphes et concluez votre travail. Vous pouvez les mettre également en relation avec vos recherches bibliographiques dans cette section. -->
 
-...Vos conclusions ici...
+Les femmes ont souvent un tour de hanche plus élevé à tour de taille équivalent. Cette corrélation est cohérente avec la répartition naturelle de la masse corporelle. Chez les femmes, une accumulation préférentielle de graisse autour des hanches (forme gynoïde) est fréquente, alors que chez les hommes, la graisse s\'accumule plus autour de la taille (forme androïde).
 
 <!--# Important : ce document doit compiler SANS ERREURS avec le bouton 'Rendu' sinon le travail sera sanctionné lourdement. La compilation du document Quarto est maintenant considérée comme acquise. -->
 
