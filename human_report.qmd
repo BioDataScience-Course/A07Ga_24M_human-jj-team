@@ -35,13 +35,15 @@ Au cours des dix dernières années, la santé humaine s'est dégradée. L'obés
 
 Les facteurs influencant l'obésité sont principalement la malnutrition, en outre due à une mauvaise consommation d'aliments trop sucrés ou à haute teneur en graisses, mais également un mode de vie sédentaire. Cepedant l'âge joue aussi un rôle important car nous rencontrons plus de cas atteint de cette maladie avec le temps.
 
-Il est possible de calculer si un individu est en condition d'obésité grâce à des indices. Selon le travail
+Il est possible de calculer si un individu est en condition d'obésité grâce à des indices. Selon le travail de Lebacq(2015), les indices permettant ces calculs sont l'IMC, le tour de taille et le ratio tour de taille par taille.
+
+Nous avons utilisé toutes ces informations afin de répondre au mieux à notre question de recherche.
 
 # But
 
 <!--% Formulez ici de façon concise et précise votre question de recherche en 1 à 2 phrases. -->
 
-...Votre but ici...
+Tester et calculer les indices permettant de quantifier l'obésité des personnes sur un échantillon d'une population belge, du Hainaut, âgée de 18ans ou plus afin d'établir des liens entre la malnutrition et le mode de sédentarisation.
 
 # Matériel et méthodes
 
@@ -50,8 +52,6 @@ Il est possible de calculer si un individu est en condition d'obésité grâce �
 Pour effectuer nos analyses, chacun des expérimentateurs ont récoltés différentes données sur quatre sujets volontaires différents, ce qui nous a permis d'obtenir un nombre de données suffisant pour effectuer une analyse correcte. Les variables mesurées par les expérimentateurs comprenaient notamment des paramètres physique tel que la masse, la taille, les mensurations mais aussi des mesures telles que le genre, l'alimentation, le sommeil,... et ont été retranscrites dans un dictionnaire de données commun à tous les expérimentateurs.
 
 Afin de limiter les biais liés aux mesures sujettes à des variations telle que la masse, nous avons réalisé une intercalibration. Cette démarche nous à permis d'assurer une cohérence et une comparabilité des données collectées tout au long de l'étude.
-
-Dans le respect du Règlement Général sur la Protection des Données (RGPD), les données receuillies ont été pseudonymisées. Cette procédure garantit la confidentialité des sujets tout en permettant l'analyse scientifique de leurs données.
 
 # Résultats
 
