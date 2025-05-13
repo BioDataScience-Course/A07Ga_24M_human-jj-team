@@ -120,7 +120,6 @@ chart(data = biometry, tour_hanche ~ masse %fill=% genre | genre) +
 geom_boxplot()+
   scale_fill_viridis_d() +
   stat_summary(fun.data = biometry, hjust = 0.5, position = position_dodge(0.75))
-  
 ```
 
 -   Les femmes ont en général un tour de hanche plus large que les hommes pour une même gamme de masse corporelle.
@@ -526,10 +525,6 @@ Nous observons qu'il y a des interactions entre les variables sucre et genre au 
 -   Régime alimentaire - IMC
 
 -   Masse-alimentation
-
--   Masse -sucre
-
--   Masse - activité physique
 
 <!--# Important : ce document doit compiler SANS ERREURS avec le bouton 'Rendu' sinon le travail sera sanctionné lourdement. La compilation du document Quarto est maintenant considérée comme acquise. -->
 
