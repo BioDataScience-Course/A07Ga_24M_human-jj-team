@@ -457,6 +457,28 @@ chart(data = bio, moyenne ~ intolerance_gluten %col=% intolerance_lactose %group
 
 <!--% Hypothèse nulle et alternative -->
 
+-   Pour la variable glucose (g)
+
+$$
+H^g_0 : µ_g oui = µ_g non 
+$$
+
+$$
+H^g_1 : µ_g oui \neq µ_g non 
+$$
+
+-   Pour la variable lactose (l)
+
+    $$ 
+    H^l_0 : µ_l oui = µ_l non 
+    $$
+
+$$
+H^l_1 : µ_l oui \neq µ_l non 
+$$
+
+-   Il n'y a pas d'interactions entre les deux variables
+
 <!--% Vérification des conditions d'application -->
 
 ```{r test_anova2_1}
