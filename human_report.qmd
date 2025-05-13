@@ -80,54 +80,56 @@ biometry1 <- smutate(biometry, IMC = masse_corr/(taille/100)^2)
 biometry3 <- smutate(biometry,  tour_tai_tai = tour_taille/taille  )
 ```
 
-```{r taille hanche}
-chart(biometry, tour_taille ~tour_hanche %shape=% genre) +
-  geom_point()
-```
-
 ```{r masse genre}
-chart(data = biometry, ~ masse %fill=%genre | genre )+
+chart(data = biometry, ~ masse %fill=% genre | genre )+
   geom_histogram(data = sselect(biometry, -genre), fill = "grey", bins = 35)+
   geom_histogram()+
   ylab("Effectifs")
 ```
 
-```{r hanche masse}
-chart(data = biometry, tour_hanche ~ masse %fill=% genre | genre) +
-geom_boxplot()+
-  scale_fill_viridis_d() +
-  stat_summary(fun.data = biometry, hjust = 0.5, position = position_dodge(0.75))
+```{r taille hanche}
+chart(biometry, tour_taille ~tour_hanche %shape=% genre) +
+  geom_point()
 ```
+
+```{r fast food}
+chart(biometry, ~ fast_food %fill=% genre |genre) +
+  geom_histogram(data = sselect(biometry, - genre), fill = "grey", bins = 13) + 
+  geom_histogram(show.legend = FALSE, bins = 13) + 
+  ylab("Effectifs")
+```
+
+Lorsque nous comparons les hommes et les femmes par rapport à différentes variables, ici le tour de taille, le tour de hanche, le nombre de fast-foods consommés par mois et la masse, nous pouvons tirer plusieurs conclusions logiques sur base des différents graphiques ci-dessus : tout d'abord, les hommes présentent une masse moyenne plus élevée que les femmes ; ensuite, que les femmes ont, en moyenne, un rapport tour de taille - tour de hanche plus élevé que les hommes ; et enfin que les hommes ont une plus grande tendance à fréquenter les fast-foods que les femmes. Certaines de ces conclusions découlent directement de la morphologie différente entre les hommes et les femmes, mais nous permettent d'avoir des bases sur lesquelles comparer nos données calculées par la suite.
+
+Ces graphiques nous servent surtout pour visualiser nos données et comment elles interagissent les unes avec les autres.
 
 ## Tests d'hypothèses
 
 <!--% Sélectionnez les 4 tests d'hypothèses les plus pertinents depuis `human_notebook.qmd`, ainsi bien sûr que les calculs des indices nécessaires que vous placerez juste au-dessus de vos tests. Ces tests doivent répondre à votre question de recherche (le but). Reformulez les interprétations pour former un texte qui se lit en continu. -->
 
-```{r rap tai han}
-#Attribution des indices
-biometry <- smutate(biometry, rap_tai_han = case_when(
-    rap_tai_han < 0.85 & genre == "F" ~ "normal",
-    rap_tai_han >= 0.85 & genre == "F" ~ "à risque",
-    rap_tai_han < 0.90 & genre == "H" ~ "normal",
-    rap_tai_han >= 0.90 & genre == "H" ~ "à risque"
-  ))
-#Graphique du rap tai han
-rap_tai_han_table <- table(sselect(biometry, genre, rap_tai_han))
-
-tabularise(rap_tai_han_table)
+```{r rap tai han - ali}
+#Calcul du tableau
+rap_tai_han_tab <- table( rap_tai_han = biometry3$rap_tai_han, régime = biometry3$alimentation )
+tabularise(rap_tai_han_tab)
+#Test chi2
+chi2_raptaihan <- chisq.test(rap_tai_han_tab)
+tabularise(chi2_raptaihan)
 ```
 
-```{r ali-IMC}
-#Graphique ou tableau utilisant l'indice calculé.
+```{r ali- IMC}
+#Calcul IMC
   biometry2 <- smutate(biometry1, IMC = case_when(
   IMC < 18.5 ~" sous poids",
   IMC >= 18.5 & IMC < 25 ~" poids normal ",
   IMC >= 25 & IMC < 30 ~" surpoids",
   IMC >= 30 ~ "obèse"))
-#Tableau 
-  IMC_tab <- table( Régime = biometry2$alimentation, IMC = biometry2$IMC )
+#Tableau alimentation - IMC
+IMC_tab <- table( Régime = biometry2$alimentation, IMC = biometry2$IMC )
 # Tableau formaté
  tabularise(IMC_tab)
+#Test chi2
+ chi2_IMC <- chisq.test(IMC_tab)
+tabularise(chi2_IMC)
 ```
 
 ```{r masse-ali}
